@@ -1,1 +1,1 @@
-<%= "Your SID is:  ${facts['sid']} database." =>
+<%= "Your SID is:  ${facts['sid']} database." %>
