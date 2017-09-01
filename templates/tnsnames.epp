@@ -1,1 +1,2 @@
+<%= $facts['sid'] %>
 <%= "Your SID is:  ${facts['sid']} database." %>
