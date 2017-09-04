@@ -1,4 +1,5 @@
-<% @tns_entries = scope().call_function('hiera',['tns_entries']) -%>
+<% @tns_entries = scope().call_function('hiera',['message']) -%>
+<%= @tns_entries %>
 
 <%= @facts['sid'] %> = 
   (DESCRIPTION =
@@ -9,6 +10,7 @@
      )
    )
 
+<%# This is how you do a comment block %>
 <%
 =begin %>
 <% @tns_entries.each do |entry| -%> 
