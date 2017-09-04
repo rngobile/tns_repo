@@ -25,7 +25,7 @@
   (ADDRESS = (PROTOCOL = TCP)(HOST = <%= v_values['address'] %>)(PORT = <%= v_values['port'] %>))
       (CONNECT_DATA =
         (SERVER = DEDICATED)
-	(SID = <%= $v_values['connection_name'] %>)
+	(SID = <%= v_values['connection_name'] %>)
       )
   )
 <% end -%>
