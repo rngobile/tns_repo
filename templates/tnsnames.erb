@@ -1,5 +1,5 @@
-<% @tns_entries = scope().call_function('hiera',['tns_entries']) -%>
-<%= @tns_entries[1] %>
+<% @tns_entries = scope().call_function('hiera_hash',['tns_entries']) -%>
+<%= @tns_entries['database'] %>
 
 <%= @facts['sid'] %> = 
   (DESCRIPTION =
