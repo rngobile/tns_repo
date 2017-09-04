@@ -20,7 +20,7 @@
 
 
 <% @tns_entries.each do | v_entry, v_values | -%> 
-	<%= v_entry %>.IVV = 
+<%= v_entry.upcase %>.IVV = 
   (DESCRIPTION =
   (ADDRESS = (PROTOCOL = TCP)(HOST = <%= v_values['address'] %>)(PORT = <%= v_values['port'] %>))
       (CONNECT_DATA =
