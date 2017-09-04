@@ -1,8 +1,6 @@
 <% @tns_entries = scope().call_function('hiera',['tns_entries']) -%>
 
-This is the bomb: <%= @facts['sid'] %>
-
-<%= "@facts['sid'] = 
+<%= @facts['sid'] %> = 
   (DESCRIPTION =
     (ADDRESS = (PROTOCOL = TCP)(HOST = 10.47.74.188)(PORT = 2616)) 
      (CONNECT_DATA = 
@@ -10,11 +8,9 @@ This is the bomb: <%= @facts['sid'] %>
        (SID = ${facts['sid']})
      )
    )
-"
-%>
 
 <% @tns_entries.each do |entry| -%>
-<%= "${entry['database']}.IVV = 
+	<%= $entry['database'] %>.IVV = 
   (DESCRIPTION =
     (ADDRESS = (PROTOCOL = TCP)(HOST = ${entry['address']})(PORT = ${entry['port']}))
       (CONNECT_DATA =
@@ -22,6 +18,4 @@ This is the bomb: <%= @facts['sid'] %>
         (SID = ${entry['connection_name']})
       )
   )
-"
-%>
 <% end -%>
