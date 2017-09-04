@@ -5,10 +5,11 @@
     (ADDRESS = (PROTOCOL = TCP)(HOST = 10.47.74.188)(PORT = 2616)) 
      (CONNECT_DATA = 
        (SERVER = DEDICATED)
-       (SID = ${facts['sid']})
+       (SID = <%= @facts['sid'] %>)
      )
    )
 
+<%#
 <% @tns_entries.each do |entry| -%>
 	<%= $entry['database'] %>.IVV = 
   (DESCRIPTION =
@@ -19,3 +20,4 @@
       )
   )
 <% end -%>
+%>
