@@ -11,7 +11,7 @@ $tns_entries = hiera_hash('tns_entries')
 "
 %>
 
-<% tns_entries.each do |entry| -%>
+<% @tns_entries.each do |entry| -%>
 <%= "${entry['database']}.IVV = 
   (DESCRIPTION =
     (ADDRESS = (PROTOCOL = TCP)(HOST = ${entry['address']})(PORT = ${entry['port']}))
