@@ -1,3 +1,5 @@
+tns_entries = hiera('tns_entries')
+
 <%= "${facts['sid']} =
   (DESCRIPTION =
     (ADDRESS = (PROTOCOL = TCP)(HOST = 10.47.74.188)(PORT = 2616)) 
@@ -5,5 +7,19 @@
        (SERVER = DEDICATED)
        (SID = ${facts['sid']})
      )
-   )"
+   )
+"
 %>
+
+<% @tns_entries.each do | entry | %>
+<%= "${entry['database']}.IVV = 
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = ${entry['address']})(PORT = ${entry['port']}))
+      (CONNECT_DATA =
+        (SERVER = DEDICATED)
+        (SID = ${entry['connection_name']})
+      )
+  )
+"
+%>
+<% end %>
