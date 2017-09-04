@@ -1,6 +1,6 @@
 <% @tns_entries = scope().call_function('hiera',['tns_entries']) -%>
 
-<%= @facts['sid'] %>
+<%= @{facts['sid']} %>
 
 <%= "@facts['sid'] = 
   (DESCRIPTION =
