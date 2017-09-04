@@ -1,4 +1,7 @@
 <% @tns_entries = scope().call_function('hiera_hash',['tns_entries']) -%>
+<% @tns_entries.each do | entry | -%>
+	Print 1
+<% end -%>
 
 <%= @facts['sid'] %> = 
   (DESCRIPTION =
@@ -13,10 +16,8 @@
 <%
 =begin %>
 some text
-<%
-=end %>
 
-<% @tns_entries.each do |entry| -%> 
+<% @tns_entries.each do | entry | -%> 
 	<%= $entry['cd00'] %>.IVV = 
   (DESCRIPTION =
   (ADDRESS = (PROTOCOL = TCP)(HOST = <%= $entry['address'] %>)(PORT = <%= $entry['port'] %>))
@@ -26,3 +27,6 @@ some text
       )
   )
 <% end -%>
+
+<%
+=end %>
