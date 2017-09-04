@@ -1,4 +1,4 @@
-tns_entries = hiera('tns_entries')
+$tns_entries = hiera('tns_entries')
 
 <%= "${facts['sid']} =
   (DESCRIPTION =
