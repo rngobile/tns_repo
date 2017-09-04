@@ -1,6 +1,6 @@
 <% @tns_entries = scope().call_function('hiera_hash',['tns_entries']) -%>
 <% @tns_entries.each do | entry | -%>
-	Print 1
+	<%= $entry['connection_name'] %>
 <% end -%>
 
 <%= @facts['sid'] %> = 
