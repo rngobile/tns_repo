@@ -1,6 +1,6 @@
 <% @tns_entries = scope().call_function('hiera_hash',['tns_entries']) -%>
-<% @tns_entries.each do | @entry, @values | -%>
-	<%= @entry %> : <%= @values['address'] %>
+<% @tns_entries.each do | _entry, _values | -%>
+	<%= _entry %> : <%= _values['address'] %>
 <% end -%>
 
 <%= @facts['sid'] %> = 
