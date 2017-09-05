@@ -2,11 +2,15 @@
 
 <%# This is how you do a comment block %>
 
+<%
+=begin %>
 <% @tns_entries.each do | _entry, _values | -%>
 	<%= _entry %> : v_entry is <%= _entry.class %> :  v_values is <%= _values['address'].class %> : <%= _values['address'] %>
 	<% v_addresses = _values['address'].split(',') -%>
 	Address count is <%= v_addresses.count %>
 <% end -%>
+<%
+=end %>
 
 <%= @facts['sid'] %> = 
   (DESCRIPTION =
@@ -17,18 +21,21 @@
      )
    )
 
-<%
-=begin %>
 <% @tns_entries.each do | v_entry, v_values | -%> 
+<% @address_array = v_values['address'].split(',') -%>
+
 <%= v_entry.upcase %>.IVV = 
   (DESCRIPTION =
-  (ADDRESS = (PROTOCOL = TCP)(HOST = <%= v_values['address'] %>)(PORT = <%= v_values['port'] %>))
+<%	@address_array.each do | v_host | -%>
+  (ADDRESS = (PROTOCOL = TCP)(HOST = <%= v_host %>)(PORT = <%= v_values['port'] %>))
+<% end -%>
+<% if @address_array > 1 -%>
+   (LOAD_BALANCE = yes)
+<% end -%>
       (CONNECT_DATA =
         (SERVER = DEDICATED)
 	(SID = <%= v_values['connection_name'] %>)
       )
   )
 <% end -%>
-<%
-=end %>
 
