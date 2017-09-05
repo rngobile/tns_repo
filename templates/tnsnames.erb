@@ -3,7 +3,7 @@
 <%# This is how you do a comment block %>
 
 <% @tns_entries.each do | _entry, _values | -%>
-	<%= _entry %> : <%= _values['address'].count %> : <%= _values['address'] %>
+	<%= _entry %> : <%= _values['address'].class %> : <%= _values['address'] %>
 <% end -%>
 
 <%= @facts['sid'] %> = 
