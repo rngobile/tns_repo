@@ -1,13 +1,10 @@
 <% @tns_entries = scope().call_function('hiera_hash',['tns_entries']) -%>
 
 <%# This is how you do a comment block %>
-<%
-=begin %>
+
 <% @tns_entries.each do | _entry, _values | -%>
 	<%= _entry %> : <%= _values['address'] %>
 <% end -%>
-<%
-=end %>
 
 <%= @facts['sid'] %> = 
   (DESCRIPTION =
@@ -19,6 +16,8 @@
    )
 
 
+<%
+=begin %>
 <% @tns_entries.each do | v_entry, v_values | -%> 
 <%= v_entry.upcase %>.IVV = 
   (DESCRIPTION =
@@ -29,4 +28,6 @@
       )
   )
 <% end -%>
+<%
+=end %>
 
