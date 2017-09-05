@@ -40,7 +40,7 @@
 	(SERVICE_NAME = <%= v_values['service_name'] %>
 <% end -%>
 
-<% if !v_values['allow_restrict'].nil? && !v_values['allow_restrict'].empty? -%>
+<% if v_values['allow_restrict']-%>
 	(UR=A)
 <% end -%>
       )
