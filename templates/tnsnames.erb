@@ -4,6 +4,8 @@
 
 <% @tns_entries.each do | _entry, _values | -%>
 	<%= _entry %> : v_entry is <%= _entry.class %> :  v_values is <%= _values['address'].class %> : <%= _values['address'] %>
+	<% v_addresses = _values['address'].split(',') -%>
+	Address count is <%= v_addresses.count %>
 <% end -%>
 
 <%= @facts['sid'] %> = 
@@ -14,7 +16,6 @@
        (SID = <%= @facts['sid'] %>)
      )
    )
-
 
 <%
 =begin %>
