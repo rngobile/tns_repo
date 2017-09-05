@@ -34,7 +34,15 @@
 <% end -%>
       (CONNECT_DATA =
         (SERVER = DEDICATED)
+<% if v_values['sid'].present? -%>
 	(SID = <%= v_values['connection_name'] %>)
+<% else -%>
+	(SERVICE_NAME = <%= v_values['service_name'] %>
+<% end -%>
+
+<% if v_values['allow_restrict'].present? -%>
+	(UR=A)
+<% end -%>
       )
   )
 <% end -%>
