@@ -30,7 +30,7 @@
   (ADDRESS = (PROTOCOL = TCP)(HOST = <%= v_host %>)(PORT = <%= v_values['port'] %>))
 <% end -%>
 <% if @address_array.count > 1 -%>
-   (LOAD_BALANCE = yes)
+  (LOAD_BALANCE = yes)
 <% end -%>
       (CONNECT_DATA =
         (SERVER = DEDICATED)
