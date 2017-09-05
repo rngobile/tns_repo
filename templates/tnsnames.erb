@@ -29,7 +29,7 @@
 <%	@address_array.each do | v_host | -%>
   (ADDRESS = (PROTOCOL = TCP)(HOST = <%= v_host %>)(PORT = <%= v_values['port'] %>))
 <% end -%>
-<% if @address_array > 1 -%>
+<% if @address_array.count > 1 -%>
    (LOAD_BALANCE = yes)
 <% end -%>
       (CONNECT_DATA =
