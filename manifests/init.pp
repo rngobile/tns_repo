@@ -1,6 +1,6 @@
 class tns_repo {
 
-  file { '/u01/tnsnames.ora' :
+  file { "${facts['oracle_home']}/network/admin/tnsnames.ora":
     ensure  => 'file',
     content =>  template('tns_repo/tnsnames.erb')
   }

@@ -1,4 +1,4 @@
-Facter.add(:sid) do
+Facter.add(:oracle_home) do
 	confine :kernel => "Linux"
 	File.foreach("/etc/oratab") do |file|
 		if file.lines.grep(/\/db/).size > 0
@@ -6,6 +6,6 @@ Facter.add(:sid) do
 		end
 	end
 	setcode do
-		@line.first.split(':').first
+		@line.first.split(':')[1]
 	end
 end
