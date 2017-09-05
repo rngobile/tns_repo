@@ -34,13 +34,13 @@
 <% end -%>
       (CONNECT_DATA =
         (SERVER = DEDICATED)
-<% if !v_values['sid'].blank? -%>
+<% if !v_values['sid'].nil? && !v_values['sid'].empty? -%>
 	(SID = <%= v_values['sid'] %>)
 <% else -%>
 	(SERVICE_NAME = <%= v_values['service_name'] %>
 <% end -%>
 
-<% if !v_values['allow_restrict'].blank? -%>
+<% if !v_values['allow_restrict'].nil? && !v_values['allow_restrict'].empty? -%>
 	(UR=A)
 <% end -%>
       )
