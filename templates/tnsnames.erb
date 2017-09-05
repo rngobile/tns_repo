@@ -1,7 +1,5 @@
 <% @tns_entries = scope().call_function('hiera_hash',['tns_entries']) -%>
-
 <%# This is how you do a comment block %>
-
 <%
 =begin %>
 <% @tns_entries.each do | _entry, _values | -%>
@@ -11,10 +9,9 @@
 <% end -%>
 <%
 =end %>
-
 <%= @facts['sid'] %> = 
   (DESCRIPTION =
-    (ADDRESS = (PROTOCOL = TCP)(HOST = 10.47.74.188)(PORT = 2616)) 
+     (ADDRESS = (PROTOCOL = TCP)(HOST = <%= @facts['fqdn'] %>)(PORT = 2616)) 
      (CONNECT_DATA = 
        (SERVER = DEDICATED)
        (SID = <%= @facts['sid'] %>)
@@ -23,7 +20,6 @@
 
 <% @tns_entries.each do | v_entry, v_values | -%> 
 <% @address_array = v_values['address'].split(',') -%>
-
 <%= v_entry.upcase %>.IVV = 
   (DESCRIPTION =
 <%	@address_array.each do | v_host | -%>
@@ -44,5 +40,6 @@
 <% end -%>
       )
   )
+
 <% end -%>
 
