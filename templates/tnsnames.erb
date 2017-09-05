@@ -37,9 +37,8 @@
 <% if !v_values['sid'].nil? && !v_values['sid'].empty? -%>
 	(SID = <%= v_values['sid'] %>)
 <% else -%>
-	(SERVICE_NAME = <%= v_values['service_name'] %>
+	(SERVICE_NAME = <%= v_values['service_name'] %>)
 <% end -%>
-
 <% if v_values['allow_restrict']-%>
 	(UR=A)
 <% end -%>
